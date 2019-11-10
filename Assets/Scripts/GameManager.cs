@@ -158,7 +158,12 @@ public class GameManager : MonoBehaviour
 
     public void CollectObjects(int objectValue) // Aumnenta el numero de objetos (empiezo = 0) + los recogidos (segun sus valores)
     {
-        collectedObjects += objectValue;
+        collectedObjects += objectValue;        //Dinero Actual In-game
+
+        //Sumar al dinero total
+        int dineroTotal = PlayerPrefs.GetInt("Coins");
+        dineroTotal += objectValue;
+        PlayerPrefs.SetInt("Coins", dineroTotal);
 
     }
 

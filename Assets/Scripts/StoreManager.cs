@@ -11,30 +11,30 @@ public class StoreManager : MonoBehaviour
     [Header("Objetos")]
     public GameObject[] OBJ_Characters;     //Tabla para guardar los diferentes objetos que se pueden comprar en la tienda
     [Header("Precios")]
-    public float[] prices_Characters;       // Tabla para guardar los preciosa de los diferentes objetos a comprar
+    public int[] prices_Characters;       // Tabla para guardar los preciosa de los diferentes objetos a comprar
 
     //Other variables
-    float currentCoins;                     //Cantidad de dinero actual que tiene el jugador y que se muestra en pantalla
+    int currentCoins;                     //Cantidad de dinero actual que tiene el jugador y que se muestra en pantalla
 
     void Start()
     {
-        currentCoins = PlayerPrefs.GetFloat("Coins");
+        currentCoins = PlayerPrefs.GetInt("Coins");
         UpdatePrices();
     }
 
 
     void Update()
     {
-        money_txt.text = Mathf.RoundToInt(currentCoins).ToString() + "$";       //Redondear el precio y mostrarlo en pantalla con el simbolo del dolar
+        money_txt.text = currentCoins.ToString() + "$";       //Redondear el precio y mostrarlo en pantalla con el simbolo del dolar
     }
 
     #region Funciones
-    void UpdateMoney(float amount)
+    void UpdateMoney(int amount)
     {
         //Actualizar el dinero. Este script se puede utilizar tanto para actualizar el precio como para 
         currentCoins += amount;
 
-        PlayerPrefs.SetFloat("Coins", currentCoins);
+        PlayerPrefs.SetInt("Coins", currentCoins);
 
     }
 

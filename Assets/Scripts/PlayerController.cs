@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public float extraImpulse = 2f;
 
-
+    
 
 
     private void Awake()
@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
 
         //La puntuacion maxima se comprueba despues de morir
         currentMaxScore = PlayerPrefs.GetFloat("maxscore", 0); // Puntuacion max actual se guarda con PlayerPrefs.GetFloat ("clave", valor)
+        PlayerPrefs.SetFloat("scoreActual", GetDistance());     //Setea en una variable global, la Score en el momento de la muerte
         if ( currentMaxScore< GetDistance()) //Comprovamos la puntuacion max con la distancia en esta partida
         {
             PlayerPrefs.SetFloat("maxscore", GetDistance()); // Si es mayor, la guardamos en su "Clave" + nuevo valor
@@ -209,6 +210,7 @@ public class PlayerController : MonoBehaviour
 
     public float GetDistance()
     {
+
         travelledDistance = Vector2.Distance(new Vector2(startPosition.x, 0),
                                             new Vector2(this.transform.position.x, 0));
 

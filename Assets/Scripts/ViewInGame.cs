@@ -15,6 +15,7 @@ public class ViewInGame : MonoBehaviour
 
     float maxscore;
     float travelledDistance;
+    int money;
 
 
 
@@ -29,31 +30,37 @@ public class ViewInGame : MonoBehaviour
     void Update()
     {
         
-
+        //Dinero
         if(GameManager.sharedInstance.currentGameState == GameState.inGame || GameManager.sharedInstance.currentGameState == GameState.gameOver)
         {
+
             currentObjects = GameManager.sharedInstance.collectedObjects;
             collectablesLabel.text = currentObjects.ToString(); 
 
         }
 
+        //HUD inGame
         if(GameManager.sharedInstance.currentGameState == GameState.inGame)
         {
             travelledDistance = PlayerController.sharedInstance.GetDistance();
             scoreLabel.text = "SCORE\n" +  travelledDistance.ToString("f1") + " m";
 
-         
-        }
-
-        if(GameManager.sharedInstance.currentGameState == GameState.inGame)
-        {
-            
-            travelledDistance = PlayerController.sharedInstance.GetDistance();
-            scoreLabel.text = "SCORE\n" + travelledDistance.ToString("f1") + " m";
-
-
             maxscore = PlayerPrefs.GetFloat("maxscore", 0);
             maxScoreLabel.text = " MAX SCORE\n" + maxscore.ToString("F1") + " m";
+
+
+        }
+
+        //HUG GameOver
+        if(GameManager.sharedInstance.currentGameState == GameState.gameOver)
+        {
+            
+            travelledDistance = PlayerPrefs.GetFloat("scoreActual", 0); //PlayerController.sharedInstance.GetDistance();
+            scoreLabel.text = "SCORE\n" + travelledDistance.ToString("f1") + " m";
+
+        /*
+            maxscore = PlayerPrefs.GetFloat("maxscore", 0);
+            maxScoreLabel.text = " MAX SCORE\n" + maxscore.ToString("F1") + " m";*/
         } 
         
 
