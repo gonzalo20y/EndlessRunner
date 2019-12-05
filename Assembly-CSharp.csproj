@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\dght.cs" />
     <Compile Include="Assets\Scripts\EnemyMovementPointToPoint.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\InfiniteRunnerManager.cs" />
     <Compile Include="Assets\Scripts\KillTrigger.cs" />
     <Compile Include="Assets\Scripts\LeaveZone.cs" />
     <Compile Include="Assets\Scripts\LevelBlock.cs" />
@@ -90,9 +91,6 @@
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>D:/_Proyectos/Proyectos_Gonzalo/EndlessRunner/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/_Proyectos/Proyectos_Gonzalo/EndlessRunner/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/_Proyectos/Proyectos_Gonzalo/EndlessRunner/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

@@ -21,8 +21,21 @@ public class LoadSelectedPlayer : MonoBehaviour
 
     void LoadSprite()
     {
-        Sprites[currentSprite].SetActive(true);
-        Controller.playerAnimator = Sprites[currentSprite].GetComponent<Animator>();
+        for (int i = 0; i < Sprites.Length; i++)
+        {
+            if (currentSprite == i)
+            {
+                Sprites[i].SetActive(true);
+                Controller.playerAnimator = Sprites[i].GetComponent<Animator>();
+                Controller.childActivated = i;
+            } else
+            {
+                Sprites[i].SetActive(false);
+            }
+        }
+        
     }
+
+
   
 }

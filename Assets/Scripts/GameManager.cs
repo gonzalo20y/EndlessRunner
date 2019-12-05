@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         sharedInstance = this;
+        
     }
 
 
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         
 
         CameraFollow.sharedInstance.ResetCameraPosition();
+        PlayerController.sharedInstance.gameObject.SetActive(true);
 
         if (PlayerController.sharedInstance.transform.position.x > 2)
         {
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         SetGameState(GameState.gameOver);
-
+        PlayerController.sharedInstance.gameObject.SetActive(false);
 
     }
 

@@ -23,8 +23,10 @@ public class PlayerController : MonoBehaviour
 
     public float extraImpulse = 2f;
 
-    
+    [HideInInspector] public int childActivated;        //Obtener el hijo activo para las animaciones 
 
+
+    [HideInInspector]public bool InfRunner;         //Variable para controlar si es infinite runner
 
     private void Awake()
     {
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         playerAnimator.SetBool("isAlive", true); // Dar valor al inicio de los campos de la animacion del player. "Set."
         playerAnimator.SetBool("isGrounded", true); // Los parametros "----" Son como se llaman las condiciones en el animator del player
-        playerAnimator.SetBool("isSlide", false);
+       //playerAnimator.SetBool("isSlide", false);  //Actualmente no esta desarrollada
         //this.playerRigidbody2D.constraints = RigidbodyConstraints2D.Fre;
 
         this.transform.position = startPosition;
@@ -61,11 +63,23 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { //Accedo a la clase GameManager.sharedInstance y compruevo el currentState. Si es igual a ameState.inGame, te dejo saltar 
+    {
+        /*
+        //Chequear si esta en camara
+        if (gameObject.transform.GetChild(childActivated).GetComponent<SpriteRenderer>().isVisible)
+        {
+            Debug.Log("Visible");
+        }
+        else
+        {
+            Debug.Log("MUERTO");            //Se triggea dos veces al empezar asi que hay que revisarlo
+        }*/
+
+        //Accedo a la clase GameManager.sharedInstance y compruevo el currentState. Si es igual a ameState.inGame, te dejo saltar 
         if (GameManager.sharedInstance.currentGameState == GameState.inGame)
         {
 
-           
+            
 
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -93,19 +107,26 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.sharedInstance.currentGameState == GameState.inGame)
         {
-
-           if (Input.GetKey(KeyCode.D))
+            if (InfRunner)
             {
                 MoveRightHorizontal();
-                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
             }
-           if (Input.GetKey(KeyCode.A))
-            {
-                MoveLeftHorizontal();
+            else {
+                if (Input.GetKey(KeyCode.D))
+                {
+                    MoveRightHorizontal();
+                    gameObject.transform.GetChild(childActivated).GetComponent<SpriteRenderer>().flipX = false;
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    MoveLeftHorizontal();
 
-                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
-                //gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+                    gameObject.transform.GetChild(childActivated).GetComponent<SpriteRenderer>().flipX = true;
+                    //gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+                }
             }
+
+           
         }
     }
 
@@ -192,7 +213,7 @@ public class PlayerController : MonoBehaviour
         GameManager.sharedInstance.GameOver();
         this.playerAnimator.SetBool("isAlive", false);
 
-
+        
 
         //La puntuacion maxima se comprueba despues de morir
         currentMaxScore = PlayerPrefs.GetFloat("maxscore", 0); // Puntuacion max actual se guarda con PlayerPrefs.GetFloat ("clave", valor)
