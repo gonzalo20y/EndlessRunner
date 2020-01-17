@@ -78,10 +78,6 @@ public class PlayerController : MonoBehaviour
         //Accedo a la clase GameManager.sharedInstance y compruevo el currentState. Si es igual a ameState.inGame, te dejo saltar 
         if (GameManager.sharedInstance.currentGameState == GameState.inGame)
         {
-
-            
-
-
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();

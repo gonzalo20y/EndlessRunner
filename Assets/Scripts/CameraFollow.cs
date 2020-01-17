@@ -22,6 +22,10 @@ public class CameraFollow : MonoBehaviour
     [HideInInspector]public float speed;         //Variable para controlar si es infinite runner
     Vector3 startPos;
 
+
+    //Otras variables
+    float lastSpd;
+
     void Awake()
     {
         //La actualizacion de frames es constante (pedimos 60 frames/s)
@@ -78,8 +82,20 @@ public class CameraFollow : MonoBehaviour
 
             if (InfRunnerCam)
             {
+                // Tipica velocidad de Rigid body 4.62963 y tipica distancia de separacion 2.3
+                float dist = (transform.position.x - target.position.x);
 
-                Vector3 newPos = new Vector3(transform.position.x + (speed * Time.deltaTime), offset.y, offset.z);
+                //Permitir que la camara continue si se choca y recuperar la camara en caso de que el usuario continue
+                if (dist >= 2.5f && target.GetComponent<Rigidbody2D>().velocity.x >= 0.5f)
+                {
+                    lastSpd = (target.GetComponent<Rigidbody2D>().velocity.x) * 0.8f;   //Ir recuperando el 20 por cierto de distancia
+                    //Debug.Log("recuperando");
+                }else  if (target.GetComponent<Rigidbody2D>().velocity.x >= 4.5f)
+                {
+                    lastSpd = target.GetComponent<Rigidbody2D>().velocity.x;
+                    //Debug.Log("normal");
+                }
+                Vector3 newPos = new Vector3(transform.position.x + (lastSpd * Time.deltaTime), offset.y, offset.z);
                 this.transform.position = Vector3.SmoothDamp(this.transform.position,
                                                            newPos, ref velocity, dampTime);
             }

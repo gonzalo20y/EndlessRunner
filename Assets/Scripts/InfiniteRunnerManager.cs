@@ -25,7 +25,7 @@ public class InfiniteRunnerManager : MonoBehaviour
         if (InfMode_Activated)
         {
             Pcontroller.runningSpeed = speed;
-            cam.speed = speed;
+            cam.speed = speed;          //Ahora mismo hay que quitarlo porque al ser rigid body la velocidad del player no es constante
         }
 
     }

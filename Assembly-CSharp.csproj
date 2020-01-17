@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\LeaveZone.cs" />
     <Compile Include="Assets\Scripts\LevelBlock.cs" />
     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\LevelGenerator_v2.cs" />
     <Compile Include="Assets\Scripts\LoadSelectedPlayer.cs" />
     <Compile Include="Assets\Scripts\ManagerScenes.cs" />
     <Compile Include="Assets\Scripts\PlayerBar.cs" />

@@ -77,8 +77,8 @@ public class GameManager : MonoBehaviour
 
         if (PlayerController.sharedInstance.transform.position.x > 2)
         {
-            LevelGenerator.sharedInstance.RemoveAllTheBlocks();
-            LevelGenerator.sharedInstance.GenerateInitialBlocks();
+            LevelGenerator_v2.sharedInstance.RemoveAllTheBlocks();
+            LevelGenerator_v2.sharedInstance.GenerateInitialBlocks();
         }
 
         PlayerController.sharedInstance.StartGame();

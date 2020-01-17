@@ -14,7 +14,7 @@ public class ViewInGame : MonoBehaviour
 
 
     float maxscore;
-    float travelledDistance;
+   [HideInInspector]public float travelledDistance;
     int money;
 
 

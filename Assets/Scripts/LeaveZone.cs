@@ -9,8 +9,8 @@ public class LeaveZone : MonoBehaviour
         if (otherCollider.tag == "Player")
             if (otherCollider.tag == "Player")
         {
-            LevelGenerator.sharedInstance.AddLevelBlock();
-            LevelGenerator.sharedInstance.RemoveOldestLevelBlock();
+            LevelGenerator_v2.sharedInstance.AddLevelBlock();
+            LevelGenerator_v2.sharedInstance.RemoveOldestLevelBlock();
         }
         
 
