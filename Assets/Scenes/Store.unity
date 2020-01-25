@@ -863,7 +863,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1501,7 +1501,7 @@ Animator:
   m_GameObject: {fileID: 1225002504}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb86d42db8391314898b7a3ecfbb33e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12020892a3c0c78409b7239392f38812, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2079,7 +2079,7 @@ Animator:
   m_GameObject: {fileID: 1882764101}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb86d42db8391314898b7a3ecfbb33e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4102f49bd079c5040bef62a61e7b9f6a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

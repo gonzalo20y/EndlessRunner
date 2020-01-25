@@ -13,7 +13,7 @@ public class LevelGenerator_v2 : MonoBehaviour
     public float endEasy = 200;         //Fase 3
     public float startHard = 300;       //Fase 4
     public float endMedium = 400;       //Fase 5
-    public List<LevelBlock> currentBlocks = new List<LevelBlock>();
+    [HideInInspector]public List<LevelBlock> currentBlocks = new List<LevelBlock>();
     [Header("Easy")]
     public List<LevelBlock> basicLevelBlocks = new List<LevelBlock>();
     [Header("Medium")]
